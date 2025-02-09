@@ -17,6 +17,14 @@ public class Controller {
         this.suitRepaireModel = suitRepaireModel;
         this.repairCountModel = repairCountModel;
 
+        //แสดงrepair count
+        String repairCounts = String.format("Repair Counts: Power: %d, Stealth: %d, Identity: %d", 
+                                    repairCountModel.getPowerSuitRepairs(), 
+                                    repairCountModel.getStealthSuitRepairs(), 
+                                    repairCountModel.getIdentitySuitRepairs());
+
+        suitInputView.setRepairCountText(repairCounts);
+
         suitInputView.addCheckButtonListener(e -> handleSuitCheck());
 
         suitResultView.addRepairButtonListener(e -> handleRepairSuit());

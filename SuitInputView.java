@@ -26,7 +26,7 @@ public class SuitInputView extends JFrame {
         add(checkButtonPanel);
     
         //แสดง repair count
-        repairCountLabel = new JLabel("Repair Counts: Power: 0 Stealth: 0 Identity: 0");
+        repairCountLabel = new JLabel("");
         repairCountLabel.setHorizontalAlignment(JLabel.CENTER);
         add(repairCountLabel);
     
