@@ -65,6 +65,9 @@ public class Controller {
             if (durabilityCheckModel.isDurabilityValid(suit)) {
                 message += "\nDurability is valid.";
                 suitResultView.showResult(message, suit);
+                if(suit.getDurability()==100){
+                    suitResultView.hideRepairButton();
+                }
             } else {
                 message += "\nDurability is not sufficient.";
                 suitResultView.showResult(message, suit);
