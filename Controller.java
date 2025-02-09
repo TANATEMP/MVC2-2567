@@ -81,8 +81,8 @@ public class Controller {
         suitRepairView.setVisible(true);
     }
 
+    // เช็คformat input
     private boolean isValidSuitId(String suitId) {
-        // Check if it's exactly 6 digits long and the first digit is not 0
-        return suitId.matches("[1-9]\\d{5}");  // Matches 6 digits, starting from 1-9
+        return suitId.matches("[1-9]\\d{5}");
     }
 }
