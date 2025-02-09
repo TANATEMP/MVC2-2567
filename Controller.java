@@ -24,13 +24,14 @@ public class Controller {
 
     private void handleSuitCheck() {
         String suitId = suitInputView.getSuitId();
-    
+
         // เช็คformat input
         if (!isValidSuitId(suitId)) {
             suitInputView.setErrorMessage("Invalid Suit ID! It should be a 6-digit number, with the first digit not 0.");
             return;
         }
-    
+        
+        suitResultView.hideRepairButton();
         suitInputView.clearErrorMessage();
     
         Suit suit = suitRepository.findSuit(suitId);

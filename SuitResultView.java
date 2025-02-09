@@ -42,6 +42,11 @@ public class SuitResultView extends JFrame {
         repairButton.setVisible(true);
     }
 
+    public void hideRepairButton() {
+        repairButton.setVisible(false);
+    }
+
+
     public void addRepairButtonListener(ActionListener listener) {
         repairButton.addActionListener(listener);
     }
