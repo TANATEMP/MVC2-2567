@@ -5,44 +5,35 @@ import java.awt.event.ActionListener;
 public class SuitInputView extends JFrame {
     private JTextField suitIdField;
     private JButton checkButton;
-    private JButton repairButton;
-    private JLabel resultLabel;
-    private JLabel durabilityLabel;
     private JLabel repairCountLabel;
-    private JLabel errorMessageLabel; // New label for error messages
+    private JLabel errorMessageLabel;
 
     public SuitInputView() {
         setTitle("Enter Superhero Suit ID");
         setSize(500, 350);
-        setLayout(new GridLayout(7, 1, 10, 10)); // Increased rows for the error message label
-    
-        // Panel for Suit ID input
+        setLayout(new GridLayout(7, 1, 10, 10));
+
         JPanel suitIdPanel = new JPanel();
         suitIdPanel.add(new JLabel("Enter Suit ID (6 digits):"));
         suitIdField = new JTextField(10);
         suitIdPanel.add(suitIdField);
         add(suitIdPanel);
 
-        // Panel for Check button
+        //ปุ่มcheck
         JPanel checkButtonPanel = new JPanel();
         checkButton = new JButton("Check");
         checkButtonPanel.add(checkButton);
         add(checkButtonPanel);
     
-        // Result label
-        resultLabel = new JLabel("");
-        resultLabel.setHorizontalAlignment(JLabel.CENTER);
-        add(resultLabel);
-    
-        // Repair Count label
+        //แสดง repair count
         repairCountLabel = new JLabel("Repair Counts: Power: 0 Stealth: 0 Identity: 0");
         repairCountLabel.setHorizontalAlignment(JLabel.CENTER);
         add(repairCountLabel);
     
-        // Error message label (new)
-        errorMessageLabel = new JLabel("");  // Initially empty
+        // แสดงinput error
+        errorMessageLabel = new JLabel("");
         errorMessageLabel.setHorizontalAlignment(JLabel.CENTER);
-        errorMessageLabel.setForeground(Color.RED);  // Red color for errors
+        errorMessageLabel.setForeground(Color.RED);
         add(errorMessageLabel);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,22 +49,6 @@ public class SuitInputView extends JFrame {
         checkButton.addActionListener(listener);
     }
 
-    public void addRepairButtonListener(ActionListener listener) {
-        repairButton.addActionListener(listener);
-    }
-
-    public void setResult(String result) {
-        resultLabel.setText(result);
-    }
-
-    public void setDurabilityText(String durability) {
-        durabilityLabel.setText(durability);
-    }
-
-    public void setRepairButtonEnabled(boolean enabled) {
-        repairButton.setEnabled(enabled);
-    }
-
     public void resetSuitIdField() {
         suitIdField.setText("");
     }
@@ -82,13 +57,11 @@ public class SuitInputView extends JFrame {
         repairCountLabel.setText(text);
     }
 
-    // Set error message
     public void setErrorMessage(String message) {
-        errorMessageLabel.setText(message); // Display the error message
+        errorMessageLabel.setText(message);
     }
 
-    // Clear the error message
     public void clearErrorMessage() {
-        errorMessageLabel.setText(""); // Clear the error message
+        errorMessageLabel.setText("");
     }
 }

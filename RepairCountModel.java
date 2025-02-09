@@ -28,7 +28,6 @@ public class RepairCountModel {
         }
     }
 
-    // Getters for the repair counts
     public int getPowerSuitRepairs() {
         return powerSuitRepairs;
     }
