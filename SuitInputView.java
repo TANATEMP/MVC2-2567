@@ -9,31 +9,42 @@ public class SuitInputView extends JFrame {
     private JLabel resultLabel;
     private JLabel durabilityLabel;
     private JLabel repairCountLabel;
+    private JLabel errorMessageLabel; // New label for error messages
 
     public SuitInputView() {
         setTitle("Enter Superhero Suit ID");
         setSize(500, 350);
-        setLayout(new GridLayout(6, 1, 10, 10));
+        setLayout(new GridLayout(7, 1, 10, 10)); // Increased rows for the error message label
     
+        // Panel for Suit ID input
         JPanel suitIdPanel = new JPanel();
         suitIdPanel.add(new JLabel("Enter Suit ID (6 digits):"));
         suitIdField = new JTextField(10);
         suitIdPanel.add(suitIdField);
         add(suitIdPanel);
 
+        // Panel for Check button
         JPanel checkButtonPanel = new JPanel();
         checkButton = new JButton("Check");
         checkButtonPanel.add(checkButton);
         add(checkButtonPanel);
     
+        // Result label
         resultLabel = new JLabel("");
         resultLabel.setHorizontalAlignment(JLabel.CENTER);
         add(resultLabel);
     
+        // Repair Count label
         repairCountLabel = new JLabel("Repair Counts: Power: 0 Stealth: 0 Identity: 0");
         repairCountLabel.setHorizontalAlignment(JLabel.CENTER);
         add(repairCountLabel);
     
+        // Error message label (new)
+        errorMessageLabel = new JLabel("");  // Initially empty
+        errorMessageLabel.setHorizontalAlignment(JLabel.CENTER);
+        errorMessageLabel.setForeground(Color.RED);  // Red color for errors
+        add(errorMessageLabel);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -69,5 +80,15 @@ public class SuitInputView extends JFrame {
 
     public void setRepairCountText(String text) {
         repairCountLabel.setText(text);
+    }
+
+    // Set error message
+    public void setErrorMessage(String message) {
+        errorMessageLabel.setText(message); // Display the error message
+    }
+
+    // Clear the error message
+    public void clearErrorMessage() {
+        errorMessageLabel.setText(""); // Clear the error message
     }
 }
