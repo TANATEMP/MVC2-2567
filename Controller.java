@@ -22,13 +22,13 @@ public class Controller {
     private void handleSuitCheck() {
         String suitId = suitInputView.getSuitId();
     
-        // Validate the Suit ID (6 digits and first digit not 0)
+        // เช็คformat input
         if (!isValidSuitId(suitId)) {
             suitInputView.setErrorMessage("Invalid Suit ID! It should be a 6-digit number, with the first digit not 0.");
             return;
         }
     
-        suitInputView.clearErrorMessage(); // Clear any previous error messages
+        suitInputView.clearErrorMessage();
     
         Suit suit = suitRepository.findSuit(suitId);
         if (suit == null) {
@@ -42,12 +42,11 @@ public class Controller {
             } else {
                 message += "\nDurability is not sufficient.";
                 suitResultView.showResult(message, suit);
-                suitResultView.showRepairButton();  // Show repair button
+                suitResultView.showRepairButton(); //แสดงปุ่มrepair ถ้าพัง
             }
         }
     
-        // Show the SuitResultView
-        suitResultView.setVisible(true); // Show SuitResultView
+        suitResultView.setVisible(true);
     }
 
     private void handleRepairSuit() {
