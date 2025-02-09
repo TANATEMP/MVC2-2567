@@ -41,14 +41,12 @@ public class RepairCountModel {
         return identitySuitRepairs;
     }
 
-    // Method to reset the repair counts
     public void resetRepairCounts() {
         powerSuitRepairs = 0;
         stealthSuitRepairs = 0;
         identitySuitRepairs = 0;
     }
 
-    // Return the formatted repair counts as a String
     public String getRepairCounts() {
         return "Repair Counts: Power: " + powerSuitRepairs + " Stealth: " + stealthSuitRepairs + " Identity: " + identitySuitRepairs;
     }
