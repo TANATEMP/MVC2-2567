@@ -1,13 +1,13 @@
 public class Controller {
     private SuitDatabase suitRepository;
     private DurabilityCheckModel durabilityCheckModel;
-    private SuitRepaireModel suitRepaireModel;
+    private SuitRepairModel suitRepaireModel;
     private RepairCountModel repairCountModel;
     private SuitInputView suitInputView;
     private SuitResultView suitResultView;
     private SuitRepairView suitRepairView;
 
-    public Controller(SuitDatabase suitRepository,DurabilityCheckModel durabilityCheckModel, SuitRepaireModel suitRepaireModel,RepairCountModel repairCountModel,
+    public Controller(SuitDatabase suitRepository,DurabilityCheckModel durabilityCheckModel, SuitRepairModel suitRepaireModel,RepairCountModel repairCountModel,
      SuitInputView suitInputView, SuitResultView suitResultView, SuitRepairView suitRepairView) {
         this.suitRepository = suitRepository;
         this.suitInputView = suitInputView;

@@ -1,4 +1,4 @@
-public class SuitRepaireModel {
+public class SuitRepairModel {
     //ซ่อมโดยเพิ่มdurabilityของsuit
     public void repair(Suit suit) {
         int durability = suit.getDurability();

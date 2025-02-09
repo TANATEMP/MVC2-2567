@@ -3,7 +3,7 @@ public class Main {
         // สร้าง Model, View, และ Controller
         SuitDatabase suitRepository = new SuitDatabase();
         DurabilityCheckModel durabilityCheckModel = new DurabilityCheckModel();
-        SuitRepaireModel suitRepaireModel = new SuitRepaireModel();
+        SuitRepairModel suitRepaireModel = new SuitRepairModel();
         RepairCountModel repairCountModel = new RepairCountModel();
         SuitInputView suitInputView = new SuitInputView();
         SuitResultView suitResultView = new SuitResultView();
