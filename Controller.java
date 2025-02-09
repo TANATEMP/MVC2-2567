@@ -2,17 +2,20 @@ public class Controller {
     private SuitDatabase suitRepository;
     private DurabilityCheckModel durabilityCheckModel;
     private SuitRepaireModel suitRepaireModel;
+    private RepairCountModel repairCountModel;
     private SuitInputView suitInputView;
     private SuitResultView suitResultView;
     private SuitRepairView suitRepairView;
 
-    public Controller(SuitDatabase suitRepository,DurabilityCheckModel durabilityCheckModel, SuitRepaireModel suitRepaireModel, SuitInputView suitInputView, SuitResultView suitResultView, SuitRepairView suitRepairView) {
+    public Controller(SuitDatabase suitRepository,DurabilityCheckModel durabilityCheckModel, SuitRepaireModel suitRepaireModel,RepairCountModel repairCountModel,
+     SuitInputView suitInputView, SuitResultView suitResultView, SuitRepairView suitRepairView) {
         this.suitRepository = suitRepository;
         this.suitInputView = suitInputView;
         this.suitResultView = suitResultView;
         this.suitRepairView = suitRepairView;
         this.durabilityCheckModel = durabilityCheckModel;
         this.suitRepaireModel = suitRepaireModel;
+        this.repairCountModel = repairCountModel;
 
         suitInputView.addCheckButtonListener(e -> handleSuitCheck());
 
@@ -52,8 +55,9 @@ public class Controller {
     private void handleRepairSuit() {
         Suit suit = suitResultView.getSuitForRepair();
         if (suit != null) {
+            
             suitRepaireModel.repair(suit); //เรียกใช้Repaire Model เพื่อซ่อม
-            suitRepository.repairSuit(suit); // นับการซ่อมในdatabase
+            repairCountModel.increaseRepairCount(suit);
 
             String message = "Suit ID: " + suit.getId() + "\nType: " + suit.getType();
             
@@ -68,9 +72,9 @@ public class Controller {
             
             //อัพเดตการแสดงจำนวนการซ่อม
             String repairCounts = String.format("Repair Counts: Power: %d, Stealth: %d, Identity: %d", 
-                                            suitRepository.getPowerSuitRepairs(), 
-                                            suitRepository.getStealthSuitRepairs(), 
-                                            suitRepository.getIdentitySuitRepairs());
+                                    repairCountModel.getPowerSuitRepairs(), 
+                                    repairCountModel.getStealthSuitRepairs(), 
+                                    repairCountModel.getIdentitySuitRepairs());
             suitInputView.setRepairCountText(repairCounts);
 
             suitResultView.showResult(message, suit);

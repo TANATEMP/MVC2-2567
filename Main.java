@@ -4,9 +4,11 @@ public class Main {
         SuitDatabase suitRepository = new SuitDatabase();
         DurabilityCheckModel durabilityCheckModel = new DurabilityCheckModel();
         SuitRepaireModel suitRepaireModel = new SuitRepaireModel();
+        RepairCountModel repairCountModel = new RepairCountModel();
         SuitInputView suitInputView = new SuitInputView();
         SuitResultView suitResultView = new SuitResultView();
         SuitRepairView suitRepairView = new SuitRepairView();
-        new Controller(suitRepository, durabilityCheckModel, suitRepaireModel, suitInputView, suitResultView, suitRepairView);
+
+        new Controller(suitRepository, durabilityCheckModel, suitRepaireModel,repairCountModel, suitInputView, suitResultView, suitRepairView);
     }
 }

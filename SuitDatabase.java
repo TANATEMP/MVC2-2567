@@ -4,9 +4,6 @@ import java.util.Random;
 
 public class SuitDatabase {
     private Map<String, Suit> suits = new HashMap<>();
-    private int powerSuitRepairs = 0;
-    private int stealthSuitRepairs = 0;
-    private int identitySuitRepairs = 0;
 
     public SuitDatabase() {
         Random random = new Random();
@@ -73,29 +70,5 @@ public class SuitDatabase {
 
     public Suit findSuit(String id) {
         return suits.get(id);
-    }
-
-    //นับจำนวนการซ่อมแต่ละประเภท
-    public void repairSuit(Suit suit) {
-        if ("Power".equals(suit.getType())) {
-            powerSuitRepairs++;
-        } else if ("Stealth".equals(suit.getType())) {
-            stealthSuitRepairs++;
-        } else if ("Identity".equals(suit.getType())) {
-            identitySuitRepairs++;
-        }
-    }
-
-    // Get repair counts for each suit type
-    public int getPowerSuitRepairs() {
-        return powerSuitRepairs;
-    }
-
-    public int getStealthSuitRepairs() {
-        return stealthSuitRepairs;
-    }
-
-    public int getIdentitySuitRepairs() {
-        return identitySuitRepairs;
     }
 }
